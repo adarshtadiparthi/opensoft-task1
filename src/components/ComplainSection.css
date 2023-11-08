@@ -1,0 +1,91 @@
+/* Complaint Cards */
+.complaint-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 90vw;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+  
+  .complaint-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.2s;
+    width: 100%; /* Full width for all screen sizes */
+    max-width: 400px; /* Limit card width as needed */
+  
+    /* Add additional styling for text elements within the card */
+    h3 {
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  
+    p {
+      margin: 5px 0;
+      color: #555;
+    }
+  
+    /* Hover effect */
+    &:hover {
+      transform: scale(1.02); /* Increase size on hover */
+    }
+  
+    /* Accordion Effect */
+    .complaint-description {
+      display: none;
+    }
+  
+    &.expanded .complaint-description {
+      display: block;
+      margin-top: 10px;
+    }
+  }
+  
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .pagination button {
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.2s;
+  }
+  
+  .pagination button.active {
+    background-color: #007BFF;
+    color: #fff;
+  }
+  
+  /* Status Filter Buttons */
+  .status-filter {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .status-filter button {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.2s;
+  }
+  
+  .status-filter button.active {
+    background-color: #007BFF;
+    color: #fff;
+  }
+  
