@@ -1,101 +1,3 @@
-// import React, { useState } from 'react';
-// import { Element } from 'react-scroll';
-// import Complaints from "./ComplaintData.js"
-// import "./ComplainSection.css";
-
-// export default function ComplaintSection() {
-//   // Pagination
-//   const [currentPage, setCurrentPage] = useState(1);
-//   const pageSize = window.innerWidth >= 768 ? 10 : 5; // Adjust the number of cards per page for different screen sizes
-//   const startIndex = (currentPage - 1) * pageSize;
-//   const endIndex = startIndex + pageSize;
-//   const displayedComplaints = Complaints.slice(startIndex, endIndex);
-
-//   // Accordion
-
-//   // Filter by status
-//   const [filteredComplaints, setFilteredComplaints] = useState(Complaints);
-//   const [currentStatus, setCurrentStatus] = useState('All');
-
-//   const handleStatusChange = (status) => {
-//     setCurrentStatus(status);
-
-//     if (status === 'All') {
-//       setFilteredComplaints(Complaints);
-//     } else {
-//       const filtered = Complaints.filter((complaint) => complaint.status === status);
-//       setFilteredComplaints(filtered);
-//     }
-//     setCurrentPage(1); // Reset to the first page when changing the filter
-//   };
-
-//   return (
-//     <Element name="complaints" className="complaint-section">
-//       <h2>Complaints</h2>
-//       <div className="status-filter">
-//         <button
-//           onClick={() => handleStatusChange('All')}
-//           className={currentStatus === 'All' ? 'active' : ''}
-//         >
-//           All
-//         </button>
-//         <button
-//           onClick={() => handleStatusChange('Waiting for Approval')}
-//           className={currentStatus === 'Waiting for Approval' ? 'active' : ''}
-//         >
-//           Waiting for Approval
-//         </button>
-//         <button
-//           onClick={() => handleStatusChange('Pending')}
-//           className={currentStatus === 'Pending' ? 'active' : ''}
-//         >
-//           Pending
-//         </button>
-//         <button
-//           onClick={() => handleStatusChange('Done')}
-//           className={currentStatus === 'Done' ? 'active' : ''}
-//         >
-//           Done
-//         </button>
-//       </div>
-//       <div className="complaint-cards">
-//         {filteredComplaints.map((complaint, index) => (
-//           <div
-//             className={`complaint-card ${expandedComplaint === complaint ? 'expanded' : ''}`}
-//             key={index}
-//             onClick={() => setExpandedComplaint(complaint)}
-//           >
-//           </div>
-//         ))}
-//       </div>
-//       <Pagination
-//         currentPage={currentPage}
-//         totalPages={Math.ceil(Complaints.length / pageSize)}
-//         onPageChange={setCurrentPage}
-//       />
-//     </Element>
-//   );
-// }
-
-// function Pagination({ currentPage, totalPages, onPageChange }) {
-//   const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
-
-//   return (
-//     <div className="pagination">
-//       {pageNumbers.map((pageNumber) => (
-//         <button
-//           key={pageNumber}
-//           onClick={() => onPageChange(pageNumber)}
-//           className={currentPage === pageNumber ? 'active' : ''}
-//         >
-//           {pageNumber}
-//         </button>
-//       ))}
-//     </div>
-//   );
-// }
-
-
 import React, { useState, useEffect } from 'react';
 import { Element } from 'react-scroll';
 import Complaints from './ComplaintData.js'; // Import your complaint data
@@ -189,8 +91,11 @@ export default function ComplaintSection() {
 }
 
 function Pagination({ currentPage, totalPages, onPageChange }) {
-  const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
-
+  const pageNumbers = [];
+  for(let i=1;i<=totalPages;i++){
+    pageNumbers.push(i);
+  }
+  // console.log(pageNumbers);
   return (
     <div className="pagination">
       {pageNumbers.map((pageNumber) => (
