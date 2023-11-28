@@ -5,7 +5,6 @@ import AboutCMS from './components/AboutCMS';
 import ComplaintSection from './components/ComplaintSection';
 import Footer from './components/Footer';
 
-// import { animateScroll as scroll } from 'react-scroll';
 
 function App() {
   return (

@@ -1,0 +1,109 @@
+/*Navbar*/
+.navbar{
+    background-color: #F1F3FF;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}   
+
+@media only screen and (min-width:768px){
+    .navbar,.complaint{
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width:767px){
+    .navbar,.complaint{
+        font-size: 0.9rem;
+    }
+}
+
+.logo{
+    width: 4rem;   
+}
+
+/*Compliant button*/
+.complaint-button{
+    display: flex;
+    align-items: center;
+    color: #4051C2;
+    background-color: white;
+    border: 2px solid #4051C2;
+    border-radius: 5px;
+    padding: 0.25rem 0.5rem;
+}
+
+.complaint-button:hover{
+    color: white;
+    background-color: #4051C2;
+    cursor: pointer;
+}
+
+.complaint{
+    background-color: white;
+    border: none;
+    color: #4051C2;
+    font-family: 'Poppins' , sans-serif;
+}
+
+.complaint-button:hover .complaint{
+    color: white;
+    background-color: #4051C2;
+} 
+
+.complaint:hover{
+    cursor: pointer;
+}
+
+/*Nav links*/
+.nav-links{
+    width: 25vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #4051C2;
+}
+
+/*User Profile*/
+.user-profile{
+    margin: 0 2rem;
+    display: flex;
+}
+
+.user-name{
+    margin: 0;
+}
+
+/*Head Section*/
+.head-section {
+    text-align: center;
+    padding: 1rem;
+}
+
+@media only screen and (min-width:768px){
+    .system-name {
+        font-size: 1.5rem;
+        color: #4051C2;
+    }
+}
+
+@media only screen and (max-width:767px){
+    .system-name {
+        font-size: 1.15rem;
+        color: #4051C2;
+    } 
+}
+  
+.system-logo {
+    max-width: 5rem;
+    height: auto;
+    margin: 0.5rem 0; 
+}

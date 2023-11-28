@@ -47,16 +47,16 @@ export default function ComplaintSection() {
           All
         </button>
         <button
-          onClick={() => setCurrentStatus('Waiting for Approval')}
-          className={currentStatus === 'Waiting for Approval' ? 'active' : ''}
-        >
-          Waiting for Approval
-        </button>
-        <button
           onClick={() => setCurrentStatus('Pending')}
           className={currentStatus === 'Pending' ? 'active' : ''}
         >
           Pending
+        </button>
+        <button
+          onClick={() => setCurrentStatus('Waiting for Approval')}
+          className={currentStatus === 'Waiting for Approval' ? 'active' : ''}
+        >
+          Waiting for Approval
         </button>
         <button
           onClick={() => setCurrentStatus('Done')}
