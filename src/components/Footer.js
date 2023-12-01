@@ -1,4 +1,5 @@
 import React from 'react';
+import './Footer.css'
 import { animateScroll as scroll } from 'react-scroll';
 
 export default function Footer() {

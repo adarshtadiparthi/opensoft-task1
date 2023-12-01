@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Element } from 'react-scroll';
-import Complaints from './ComplaintData.js'; // Import your complaint data
+import Complaints from './ComplaintData.js'; // Importing complaint data
 import './ComplainSection.css';
 
 export default function ComplaintSection() {
@@ -15,7 +15,8 @@ export default function ComplaintSection() {
   useEffect(() => {
     if (currentStatus === 'All') {
       setFilteredComplaints(Complaints);
-    } else {
+    } 
+    else {
       const filtered = Complaints.filter((complaint) => complaint.status === currentStatus);
       setFilteredComplaints(filtered);
     }
@@ -68,17 +69,24 @@ export default function ComplaintSection() {
       <div className="complaint-cards">
         {displayedComplaints.map((complaint, index) => (
           <div className={`complaint-card ${expandedCard === complaint ? 'expanded' : ''}`} key={index} onClick={() => toggleCard(complaint)}>
-              <h3>{complaint.studentName}</h3>
-              <p>Roll Number: {complaint.rollNumber}</p>
-              <p>Room Number: {complaint.roomNumber}</p>
-              <p>Category: {complaint.category}</p>
-              <p>Status: {complaint.status}</p>
-              {expandedCard === complaint && (
+          <div className="complaint-header">
+            <h3>{complaint.category}</h3>
+            <p>Date: {complaint.date}</p>
+          </div>
+          <div className="complaint-body">
+            <p>Name: {complaint.studentName}</p>
+            <p>Room Number: {complaint.roomNumber}</p>
+            <p>Roll Number: {complaint.rollNumber}</p>
+          </div>
+          <div className="complaint-footer">
+            <p>Status: {complaint.status}</p>
+            {expandedCard === complaint && (
               <div className="complaint-description">
                 <p>{complaint.complaint}</p>
               </div>
             )}
           </div>
+        </div>
         ))}
       </div>
       <Pagination
@@ -92,12 +100,16 @@ export default function ComplaintSection() {
 
 function Pagination({ currentPage, totalPages, onPageChange }) {
   const pageNumbers = [];
-  for(let i=1;i<=totalPages;i++){
+  for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }
-  // console.log(pageNumbers);
+
   return (
     <div className="pagination">
+      {currentPage > 1 && (
+        <button onClick={() => onPageChange(currentPage - 1)}>&lt;</button>
+      )}
+
       {pageNumbers.map((pageNumber) => (
         <button
           key={pageNumber}
@@ -107,6 +119,10 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
           {pageNumber}
         </button>
       ))}
+
+      {currentPage < totalPages && (
+        <button onClick={() => onPageChange(currentPage + 1)}>&gt;</button>
+      )}
     </div>
   );
 }
